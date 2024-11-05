@@ -1,28 +1,28 @@
 import type { AppRouteModule } from '/@/router/types';
 
 import { LAYOUT } from '/@/router/constant';
-import { t } from '/@/hooks/web/useI18n';
+// import { t } from '/@/hooks/web/useI18n';
 
 const dashboard: AppRouteModule = {
-  path: '/about',
-  name: 'About',
+  path: '/booking',
+  name: 'Booking',
   component: LAYOUT,
-  redirect: '/about/index',
+  redirect: '/booking/index',
   meta: {
-    hideChildrenInMenu: true,
+    hideChildrenInMenu: false,
     icon: 'simple-icons:about-dot-me',
-    title: t('routes.dashboard.about'),
+    title: '预定管理',
     orderNo: 100000,
   },
   children: [
     {
       path: 'index',
-      name: 'AboutPage',
-      component: () => import('/@/views/sys/about/index.vue'),
+      name: 'Booking',
+      component: () => import('/@/views/workbench/components/booking/index.vue'),
       meta: {
-        title: t('routes.dashboard.about'),
+        title: '预定首页',
         icon: 'simple-icons:about-dot-me',
-        hideMenu: true,
+        hideMenu: false,
       },
     },
   ],

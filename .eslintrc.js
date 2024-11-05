@@ -25,6 +25,12 @@ module.exports = defineConfig({
     'plugin:jest/recommended',
   ],
   rules: {
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index'],
+      },
+    ],
     'vue/script-setup-uses-vars': 'error',
     '@typescript-eslint/ban-ts-ignore': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -56,7 +62,7 @@ module.exports = defineConfig({
 
     'vue/attributes-order': 'off',
     'vue/v-on-event-hyphenation': 'off',
-    'vue/multi-word-component-names': 'off',
+    // 'vue/multi-word-component-names': 'off',
     'vue/one-component-per-file': 'off',
     'vue/html-closing-bracket-newline': 'off',
     'vue/max-attributes-per-line': 'off',

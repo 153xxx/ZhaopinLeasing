@@ -91,7 +91,7 @@ const transform: AxiosTransform = {
       config.url = `${urlPrefix}${config.url}`;
     }
 
-    if (apiUrl && isString(apiUrl)) {
+    if (apiUrl && isString(apiUrl) && !config.url?.includes('investment')) {
       config.url = `${apiUrl}${config.url}`;
     }
     const params = config.params || {};
