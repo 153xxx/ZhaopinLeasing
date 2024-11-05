@@ -1,10 +1,16 @@
 <script setup lang="ts">
+  import { ref } from 'vue';
   import { PageWrapper } from '/@/components/Page';
-  import { Row, Col } from 'ant-design-vue';
+  import { Row, Col, Button, Modal } from 'ant-design-vue';
   import { Tabs, TabPane } from 'ant-design-vue';
   import 'ant-design-vue/dist/antd.css';
   import * as XLSX from 'xlsx';
   import bookingPage from './components/bookingPage.vue';
+  import addForm from './components/addForm.vue';
+
+  const modalText = ref<string>('Content of the modal');
+  const visible = ref<boolean>(false);
+  const confirmLoading = ref<boolean>(false);
 
   const downloadTableBooking = () => {
     const table = document.querySelector(bookingPage.numberId); // 替换为你的表格ID
@@ -23,14 +29,31 @@
   defineExpose({
     downloadTableBooking,
   });
-
-  function primaryOn() {}
+  const primaryOn = () => {
+    visible.value = true;
+  };
+  const handleOk = () => {
+    modalText.value = 'The modal will be closed after two seconds';
+    confirmLoading.value = true;
+    setTimeout(() => {
+      visible.value = false;
+      confirmLoading.value = false;
+    }, 2000);
+  };
 </script>
 <template>
   <PageWrapper>
     <div class="bookingTop">
       <div>
-        <a-button type="primary" @click="primaryOn">添加预定</a-button>
+        <Button type="primary" @click="primaryOn">添加租赁</Button>
+        <Modal
+          title="添加租赁"
+          v-model:visible="visible"
+          :confirm-loading="confirmLoading"
+          @ok="handleOk"
+        >
+          <addForm />
+        </Modal>
       </div>
       <div class="bookingSearch">
         <div class="search">
