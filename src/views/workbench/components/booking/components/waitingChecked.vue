@@ -1,15 +1,16 @@
 <script setup>
-  import { h, reactive, onMounted } from 'vue';
+  import { h, onMounted, reactive } from 'vue';
   import { Table, Dropdown, Menu } from 'ant-design-vue';
   import { getWorkbenchData } from '/@/api/workbench/index';
 
   let data = reactive([]);
 
+  // #94d3ff
   function fetchData() {
     return new Promise((resolve, reject) => {
       getWorkbenchData()
         .then((res) => {
-          const bookingDataArray = Array.from({ length: 20 }, (_, index) => ({
+          const bookingDataArray = Array.from({ length: 5 }, (_, index) => ({
             numberId: `${index + 1}`,
             status: getRandomStatus(),
             address: `${getRandomName()}-${getRandomPhoneNumber()}-${randomStatus()}`,
@@ -36,7 +37,7 @@
         });
     });
   }
-  fetchData();
+
   const statusCounts = reactive({});
 
   fetchData().then(() => {
@@ -109,7 +110,7 @@
 
   // 辅助函数生成随机状态
   function getRandomStatus() {
-    const statusesOn = ['已入住', '待生效', '待入住', '已退定'];
+    const statusesOn = ['待入住'];
     return statusesOn[Math.floor(Math.random() * statusesOn.length)];
   }
 

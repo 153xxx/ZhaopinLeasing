@@ -5,19 +5,24 @@
   import { Tabs, TabPane } from 'ant-design-vue';
   import 'ant-design-vue/dist/antd.css';
   import * as XLSX from 'xlsx';
-  import bookingPage from './components/bookingPage.vue';
-  import addForm from './components/addForm.vue';
-  import bookingPend from './components/bookingPend.vue';
-  import waitingChecked from './components/waitingChecked.vue';
-  import bookingReturned from './components/bookingReturned.vue';
-  import InVain from './components/InVain.vue';
+  import tenantPage from './components/tenantPage.vue';
+  import tenantSign from './components/tenantSign.vue';
+  import tenantLease from './components/tenantLease.vue';
+  import tenantMovingIn from './components/tenantMovingIn.vue';
+  import tenantMovingOut from './components/tenantMovingOut.vue';
+  import TenantExpired from './components/tenantExpired.vue';
+  import TenantOffLease from './components/tenantOffLease.vue';
+  import TeanantWaitAccount from './components/teanantWaitAccount.vue';
+  import TenantConfirm from './components/tenantConfirm.vue';
+  import TenantCancelled from './components/tenantCancelled.vue';
+  import AddContract from './components/addContract.vue';
 
   const modalText = ref<string>('Content of the modal');
   const visible = ref<boolean>(false);
   const confirmLoading = ref<boolean>(false);
 
   const downloadTableBooking = () => {
-    const table = document.querySelector(bookingPage.numberId); // 替换为你的表格ID
+    const table = document.querySelector(tenantPage.numberId); // 替换为你的表格ID
     if (table) {
       const sheet = XLSX.utils.table_to_sheet(table); // 将表格转换成工作表对象
       const workbook = XLSX.utils.book_new(); // 创建一个新的工作簿
@@ -49,14 +54,15 @@
   <PageWrapper>
     <div class="bookingTop">
       <div>
-        <Button type="primary" @click="primaryOn">添加租赁</Button>
+        <Button type="primary" @click="primaryOn">添加合同</Button>
         <Modal
-          title="添加租赁"
+          title="添加合同"
           v-model:visible="visible"
           :confirm-loading="confirmLoading"
           @ok="handleOk"
+          width="1000px"
         >
-          <addForm />
+          <AddContract />
         </Modal>
       </div>
       <div class="bookingSearch">
@@ -80,19 +86,19 @@
           </svg>
         </div>
         <svg
+          t="1730877251246"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
           xmlns="http://www.w3.org/2000/svg"
+          p-id="7645"
           width="24"
           height="24"
-          viewBox="0 0 24 24"
-          @click="downloadTableBooking"
         >
           <path
-            fill="none"
-            stroke="black"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5l5-5m-5-7v12"
+            d="M644.87866595 886.42622805c0-71.30375737-56.36701639-129.10635008-125.88707384-129.10635008-69.51074361 0-125.89755278 57.80259271-125.89755279 129.10635008 0 71.32238621 56.38797312 129.12381383 125.89755279 129.12381384C588.51281351 1015.55004189 644.87866595 957.74745031 644.87866595 886.42622805zM644.87866595 499.08971405c0-71.30259342-56.36701639-129.12381383-125.88707384-129.12381382-69.51074361 0-125.89755278 57.82238549-125.89755278 129.12381383 0 71.30375737 56.38797312 129.10635008 125.89755278 129.10635008C588.51281351 628.19606414 644.87866595 570.39347142 644.87866595 499.08971405zM644.87866595 137.57493589c0-71.32355015-56.36701639-129.12497891-125.88707384-129.12497891-69.51074361 0-125.89755278 57.80142762-125.89755279 129.12497891 0 71.30375737 56.38797312 129.10518499 125.89755279 129.105185C588.51281351 266.67895694 644.87866595 208.87752931 644.87866595 137.57493589z"
+            p-id="7646"
+            fill="#1296db"
           />
         </svg>
       </div>
@@ -108,19 +114,34 @@
       >
         <Tabs defaultActiveKey="1">
           <TabPane key="1" tab="全部" class="wordColor">
-            <bookingPage />
+            <tenantPage />
           </TabPane>
-          <TabPane key="2" tab="待生效" class="wordColor">
-            <bookingPend />
+          <TabPane key="2" tab="待签字" class="wordColor">
+            <tenantSign />
           </TabPane>
-          <TabPane key="3" tab="待入住" class="wordColor">
-            <waitingChecked />
+          <TabPane key="3" tab="在租中" class="wordColor">
+            <tenantLease />
           </TabPane>
-          <TabPane key="4" tab="待入住" class="wordColor">
-            <bookingReturned />
+          <TabPane key="4" tab="即将搬入" class="wordColor">
+            <tenantMovingIn />
           </TabPane>
-          <TabPane key="5" tab="无效" class="wordColor">
-            <InVain />
+          <TabPane key="5" tab="即将搬出" class="wordColor">
+            <tenantMovingOut />
+          </TabPane>
+          <TabPane key="6" tab="已到期" class="wordColor">
+            <TenantExpired />
+          </TabPane>
+          <TabPane key="7" tab="已退租" class="wordColor">
+            <TenantOffLease />
+          </TabPane>
+          <TabPane key="8" tab="待结账" class="wordColor">
+            <TeanantWaitAccount />
+          </TabPane>
+          <TabPane key="9" tab="待确认" class="wordColor">
+            <TenantConfirm />
+          </TabPane>
+          <TabPane key="10" tab="已作废" class="wordColor">
+            <TenantCancelled />
           </TabPane>
         </Tabs>
       </Col>
