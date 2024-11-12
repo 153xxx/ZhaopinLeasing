@@ -10,7 +10,7 @@ const dashboard: AppRouteModule = {
   redirect: '/workbench/index',
   meta: {
     hideChildrenInMenu: false,
-    icon: 'simple-icons:about-dot-me',
+    icon: 'eos-icons:content-lifecycle-management',
     title: '工作台',
     orderNo: 100000,
   },
@@ -21,7 +21,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/workbench/index.vue'),
       meta: {
         title: '工作台页面',
-        icon: 'simple-icons:about-dot-me',
+        icon: 'eos-icons:content-lifecycle-management',
         hideMenu: false,
       },
     },

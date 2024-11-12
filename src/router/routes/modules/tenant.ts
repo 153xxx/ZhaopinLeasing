@@ -10,7 +10,7 @@ const dashboard: AppRouteModule = {
   redirect: '/tenant/index',
   meta: {
     hideChildrenInMenu: false,
-    icon: 'simple-icons:about-dot-me',
+    icon: 'eos-icons:content-lifecycle-management',
     title: '租客合同',
     orderNo: 100000,
   },
@@ -21,7 +21,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/workbench/components/tenantContract/index.vue'),
       meta: {
         title: '合同首页',
-        icon: 'simple-icons:about-dot-me',
+        icon: 'eos-icons:content-lifecycle-management',
         hideMenu: false,
       },
     },

@@ -10,7 +10,7 @@ const dashboard: AppRouteModule = {
   redirect: '/booking/index',
   meta: {
     hideChildrenInMenu: false,
-    icon: 'simple-icons:about-dot-me',
+    icon: 'eos-icons:content-lifecycle-management',
     title: '预定管理',
     orderNo: 100000,
   },
@@ -21,7 +21,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/workbench/components/booking/index.vue'),
       meta: {
         title: '预定首页',
-        icon: 'simple-icons:about-dot-me',
+        icon: 'eos-icons:content-lifecycle-management',
         hideMenu: false,
       },
     },
