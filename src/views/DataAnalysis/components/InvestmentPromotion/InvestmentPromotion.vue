@@ -1,6 +1,6 @@
 <template>
   <div class="InvestmentPromotion">
-    <div style="width: 100%; height: 100%">
+    <div style="width: 100%; height: 100%; display: flex; justify-content: center">
       <div ref="chartContainer" style="width: 28vw; height: 25vw; margin-top: 5vw"></div>
     </div>
     <div class="InvestmentPromotiontitle-icon-container">

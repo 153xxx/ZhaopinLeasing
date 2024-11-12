@@ -1,6 +1,6 @@
 <template>
   <div class="InvestmentCustome">
-    <div style="width: 100%; height: 100%; margin-top: 5vw">
+    <div style="width: 100%; height: 100%; margin-top: 5vw; display: flex; justify-content: center">
       <div ref="pieChart" style="width: 25vw; height: 25vw"></div>
     </div>
     <div class="InvestmentCustometitle-icon-container">
@@ -27,10 +27,6 @@
     tooltip: {
       trigger: 'item',
       formatter: '{a} <br/>{b} : {c} ({d}%)',
-    },
-    legend: {
-      top: '5%',
-      left: 'center',
     },
     series: [
       {

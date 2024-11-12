@@ -1,3 +1,3 @@
 <template>
-  <div>a</div>
+  <div>暂无图表</div>
 </template>

@@ -11,7 +11,7 @@
         padding-left: 15px;
       "
     >
-      财务台账
+      租赁台账
     </div>
     <!-- 导航栏和选择器 -->
     <div class="nav-bar-with-selectors">
@@ -84,8 +84,8 @@
 
 <script setup>
   import { ref } from 'vue';
-  import Chart from '/@/views/DataAnalysis/components/AccountingLedger/AccountingChart.vue';
-  import Dataset from '/@/views/DataAnalysis/components/AccountingLedger/AccountingDataset.vue';
+  import Chart from '/@/views/DataAnalysis/components/LeaseLedger/LeaseChart.vue';
+  import Dataset from '/@/views/DataAnalysis/components/LeaseLedger/LeaseDataset.vue';
   import { Select, SelectOption, DatePicker, Button } from 'ant-design-vue';
 
   const navItems = [
@@ -119,8 +119,8 @@
   const datasetComponent = ref(null);
 
   function downloadExcel() {
-    if (datasetComponent.value) {
-      datasetComponent.value.downloadExcel();
+    if (currentId.value === 2 && datasetComponent.value) {
+      datasetComponent.value.downloadExcel(startDate.value, endDate.value, selectedProject.value);
     }
   }
 </script>
@@ -155,6 +155,7 @@
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
   }
 
   .nav-item {

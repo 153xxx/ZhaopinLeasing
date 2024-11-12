@@ -1,6 +1,6 @@
 <template>
   <div class="Outstanding">
-    <div style="width: 100%; height: 100%; margin-top: 5vw">
+    <div style="width: 100%; height: 100%; margin-top: 5vw; display: flex; justify-content: center">
       <div ref="pieChart" style="width: 25vw; height: 25vw"></div
     ></div>
     <div class="Outstandingtitle-icon-container">
@@ -23,14 +23,6 @@
 
   const option = {
     backgroundColor: 'white',
-    title: {
-      text: 'Customized Pie',
-      left: 'center',
-      top: 20,
-      textStyle: {
-        color: '#ccc',
-      },
-    },
     tooltip: {
       trigger: 'item',
     },

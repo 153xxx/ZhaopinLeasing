@@ -1,6 +1,6 @@
 <template>
   <div class="AccountingLedger">
-    <div style="width: 100%; height: 100%; margin-top: 5vw">
+    <div style="width: 100%; height: 100%; margin-top: 5vw; display: flex; justify-content: center">
       <div ref="chartContainer" style="width: 28vw; height: 25vw"></div>
     </div>
     <div class="AccountingLedgertitle-icon-container">
@@ -118,11 +118,11 @@
   }
 
   .chart-container {
+    position: relative; /* 确保容器是相对定位 */
     width: 100%;
     height: 500px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    margin: auto;
   }
 </style>

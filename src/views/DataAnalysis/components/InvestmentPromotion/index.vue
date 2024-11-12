@@ -11,7 +11,7 @@
         padding-left: 15px;
       "
     >
-      财务台账
+      招商数据报表
     </div>
     <!-- 导航栏和选择器 -->
     <div class="nav-bar-with-selectors">
@@ -71,21 +71,21 @@
         <Select-option value="项目3">项目3</Select-option>
       </Select>
       <!-- 下载按钮 -->
-      <Button @click="downloadExcel">下载</Button>
+      <Button class="selector" @click="downloadData">下载</Button>
     </div>
     <!-- 内容显示区域 -->
     <div class="content-area">
       <!-- 默认显示id为1的内容 -->
       <div v-if="currentId === 1"><Chart /></div>
-      <div v-if="currentId === 2"><Dataset ref="datasetComponent" /></div>
+      <div v-if="currentId === 2"><Dataset /></div>
     </div>
   </div>
 </template>
 
 <script setup>
   import { ref } from 'vue';
-  import Chart from '/@/views/DataAnalysis/components/AccountingLedger/AccountingChart.vue';
-  import Dataset from '/@/views/DataAnalysis/components/AccountingLedger/AccountingDataset.vue';
+  import Chart from '/@/views/DataAnalysis/components/InvestmentPromotion/InvestmentChart.vue';
+  import Dataset from '/@/views/DataAnalysis/components/InvestmentPromotion/InvestmentDataset.vue';
   import { Select, SelectOption, DatePicker, Button } from 'ant-design-vue';
 
   const navItems = [
@@ -116,22 +116,19 @@
     console.log(`Selected project: ${value}`);
   }
 
-  const datasetComponent = ref(null);
-
-  function downloadExcel() {
-    if (datasetComponent.value) {
-      datasetComponent.value.downloadExcel();
-    }
+  // 假设 Dataset 组件提供了一个方法来生成 Excel 数据
+  function downloadData() {
+    Dataset.generateExcel();
   }
 </script>
 
 <style scoped>
   .dialog-content {
+    margin-top: 25px;
     border: 1px solid #ccc;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
   }
 
   /* 标题区域样式 */
