@@ -49,6 +49,17 @@
       confirmLoading.value = false;
     }, 2000);
   };
+
+  // const dataSource = ref([]);
+  // const filters = ref({ search: '' });
+
+  // const filterDateKeyWords = () => {
+  //   dataSource.value = dataSource.value.filter((item) => {
+  //     const itemStr = Object.values(item).join('').toLowerCase();
+  //     const searchStr = filters.value.search.toLowerCase().trim();
+  //     return itemStr.includes(searchStr);
+  //   });
+  // };
 </script>
 <template>
   <PageWrapper>
@@ -84,6 +95,10 @@
               fill="#2c2c2c"
             />
           </svg>
+          <!-- <div v-for="item in dataSource" :key="item.name">
+            显示过滤后的数据
+            {{ item }}
+          </div> -->
         </div>
         <svg
           t="1730877251246"
