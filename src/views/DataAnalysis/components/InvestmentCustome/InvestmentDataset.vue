@@ -36,12 +36,10 @@
           </Table>
         </div>
 
-        <div v-if="currentView === 'newCustomersByChannel'">
+        <div v-if="currentView === 'customerIntentionLevels'">
           <!-- 第三个表格 -->
           <Table :dataSource="tableData3" :columns="columns3" rowKey="key" bordered>
-            <template #footer>
-              <span>总计: {{ totalData3 }}</span>
-            </template>
+            <template #footer> </template>
           </Table>
         </div>
       </div>
@@ -103,14 +101,6 @@
       key: category,
     })),
   ];
-
-  // 第三个表格计算总计
-  const totalData3 = computed(() => {
-    const lastRow = tableData3.value[tableData3.value.length - 1];
-    return lastRow
-      ? `A类: ${lastRow.A类}, B类: ${lastRow.B类}, C类: ${lastRow.C类}, D类: ${lastRow.D类}, E类: ${lastRow.E类}`
-      : '数据加载中...';
-  });
 
   // 生成第一个表格的随机数据
   function generateRandomData1() {
