@@ -15,12 +15,21 @@ const investmentManage: AppRouteModule = {
   },
   children: [
     {
+      path: 'seehouse',
+      name: 'seehouse',
+      component: () => import('/@/views/workbench/components/findhouse/seehouse/index.vue'),
+      meta: {
+        // affix: true,
+        title: t('巡房首页'),
+      },
+    },
+    {
       path: 'analysis',
       name: 'analysis',
       component: () => import('/@/views/workbench/components/findhouse/analysis/index.vue'),
       meta: {
         // affix: true,
-        title: t('巡房管理1'),
+        title: t('统计分析'),
       },
     },
     {
@@ -29,16 +38,7 @@ const investmentManage: AppRouteModule = {
       component: () => import('/@/views/workbench/components/findhouse/housemark/index.vue'),
       meta: {
         // affix: true,
-        title: t('巡房管理2'),
-      },
-    },
-    {
-      path: 'seehouse',
-      name: 'seehouse',
-      component: () => import('/@/views/workbench/components/findhouse/seehouse/index.vue'),
-      meta: {
-        // affix: true,
-        title: t('巡房管理3'),
+        title: t('巡房记录'),
       },
     },
   ],
